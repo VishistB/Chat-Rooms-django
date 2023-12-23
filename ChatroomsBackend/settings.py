@@ -34,13 +34,19 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    "daphne",
+    "channels",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "chatapp",
 ]
+
+LOGIN_REDIRECT_URL = "home"
+LOGOUT_REDIRECT_URL = "home"
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
@@ -57,7 +63,9 @@ ROOT_URLCONF = "ChatroomsBackend.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [],
+        "DIRS": [
+            os.path.join(BASE_DIR,"templates")
+        ],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -69,6 +77,9 @@ TEMPLATES = [
         },
     },
 ]
+
+
+ASGI_APPLICATION = 'ChatroomsBackend.asgi.application'
 
 WSGI_APPLICATION = "ChatroomsBackend.wsgi.application"
 
