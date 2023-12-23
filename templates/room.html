@@ -11,7 +11,10 @@
     id="id_chat_item_container"
     style="font-size: 20px"
 >
-{% for i in messages%}{%endfor%}
+{% for i in messages%}
+{{i.user.username}}: {{i.content}}
+<br>
+{%endfor%}
     <br />
     <input type="text" id="id_message_send_input" />
     <button type="submit" id="id_message_send_button">Send</button>
