@@ -39,8 +39,7 @@ def rooms(request):
     return render(request,"rooms.html",context)
 
 def room(request,slug):
-    room_name=Room.objects.get(slug=slug)
-    room_name=room_name.name
+    room_name=Room.objects.get(slug=slug).name
     messages=Message.objects.filter(room=Room.objects.get(slug=slug))
     context={"slug":slug,"room_name":room_name,'messages':messages}
 
