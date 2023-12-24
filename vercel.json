@@ -2,7 +2,7 @@
     "version": 2,
     "builds": [
         {
-            "src": "ChatroomsBackend/wsgi.py",
+            "src": "ChatroomsBackend/asgi.py",
             "use": "@vercel/python",
             "config": {
                 "maxLambdaSize": "15mb",
@@ -24,7 +24,7 @@
         },
         {
             "src": "/(.*)",
-            "dest": "ChatroomsBackend/wsgi.py"
+            "dest": "ChatroomsBackend/asgi.py"
         }
     ]
 
